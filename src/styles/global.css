@@ -17,13 +17,14 @@ body {
     background-color: #181818;
     color: #ffffff;
     font-family: Arial, sans-serif;
+    overflow-y: scroll;
+
 }
 
 .content-container {
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 20px;
-    color: #ffffff;
 }
 
 .content-title {
@@ -94,13 +95,6 @@ body {
 }
 
 /* Detail Page */
-
-.detail-container {
-    max-width: auto;
-    margin: 20px auto;
-    padding: 20px;
-    color: #ffffff;
-}
 
 .detail-card {
     display: flex;

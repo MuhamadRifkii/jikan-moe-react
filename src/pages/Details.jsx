@@ -33,7 +33,7 @@ function Details() {
     document.title = anime.title
 
     return (
-        <div className="detail-container">
+        <div className="content-container">
             <div className="detail-card">
                 <img
                     src={anime.images.jpg.large_image_url}
@@ -53,7 +53,7 @@ function Details() {
                             <strong>Released:</strong> {anime.aired.string}
                         </p>
                         <p>
-                            <strong>Type:</strong> {anime.type}
+                            <strong>Genres:</strong> {anime.genres.map(genre => genre.name).join(', ') || 'N/A'}
                         </p>
                         <p>
                             <strong>Studio:</strong>{' '}
