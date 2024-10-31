@@ -7,6 +7,7 @@
     font-size: 2rem;
     color: white;
     margin-bottom: 20px;
+    text-decoration: none;
 }
 
 .logo span {
@@ -18,7 +19,6 @@ body {
     color: #ffffff;
     font-family: Arial, sans-serif;
     overflow-y: scroll;
-
 }
 
 .content-container {

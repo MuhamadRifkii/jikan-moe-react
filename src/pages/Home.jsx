@@ -42,11 +42,13 @@ function Home() {
                         <div className="anime-item">
                             <img
                                 src={anime.images.jpg.image_url}
-                                alt={anime.title}
+                                alt={anime.title_english}
                                 className="anime-image"
                             />
                             <div className="anime-info">
-                                <h3 className="anime-title">{anime.title}</h3>
+                                <h3 className="anime-title">
+                                    {anime.title_english || anime.title}
+                                </h3>
                                 <p className="anime-synopsis">
                                     {anime.synopsis
                                         ? anime.synopsis.slice(0, 100) + '...'

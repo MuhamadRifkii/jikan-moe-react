@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, Link } from 'react-router-dom'
 import './styles/global.css'
 
 import Home from './pages/Home'
@@ -8,9 +8,9 @@ function App() {
     return (
         <div className="App">
             <div class="content-container">
-                <div class="logo">
+                <Link to="/anime" class="logo">
                     Jikan <span>Moe</span>
-                </div>
+                </Link>
             </div>
             <Routes>
                 <Route path="/" element={<Navigate to="/anime" />} />

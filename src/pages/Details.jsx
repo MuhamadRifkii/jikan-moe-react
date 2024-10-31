@@ -30,19 +30,19 @@ function Details() {
     if (loading) return null
     if (error) return <p>Error: {error}</p>
 
-    document.title = anime.title
+    document.title = anime.title_english || anime.title
 
     return (
         <div className="content-container">
             <div className="detail-card">
                 <img
                     src={anime.images.jpg.large_image_url}
-                    alt={anime.title}
+                    alt={anime.title_english}
                     className="detail-image"
                 />
                 <div className="anime-details">
                     <h2 className="detail-title">
-                        {anime.title} ({anime.title_japanese})
+                        {anime.title_english} ({anime.title_japanese})
                     </h2>
                     <p className="detail-synopsis">{anime.synopsis}</p>
                     <div className="detail-info">
@@ -53,7 +53,10 @@ function Details() {
                             <strong>Released:</strong> {anime.aired.string}
                         </p>
                         <p>
-                            <strong>Genres:</strong> {anime.genres.map(genre => genre.name).join(', ') || 'N/A'}
+                            <strong>Genres:</strong>{' '}
+                            {anime.genres
+                                .map((genre) => genre.name)
+                                .join(', ') || 'N/A'}
                         </p>
                         <p>
                             <strong>Studio:</strong>{' '}
@@ -62,8 +65,15 @@ function Details() {
                                 .join(', ')}
                         </p>
                         <p>
-                            <strong>Season:</strong>{' '}
-                            {anime.season ? anime.season : 'N/A'}
+                            {anime.season ? (
+                                <>
+                                    <strong>Season:</strong> {anime.season}
+                                </>
+                            ) : (
+                                <>
+                                    <strong>Type:</strong> {anime.type || 'N/A'}
+                                </>
+                            )}
                         </p>
                         <p>
                             <strong>Episodes:</strong> {anime.episodes}
