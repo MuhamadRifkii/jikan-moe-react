@@ -149,3 +149,21 @@ body {
     width: 1em;
     margin-right: 5px;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #181818; /* Track color (same as background) */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333333; /* Thumb color (darker shade for contrast) */
+    border-radius: 6px; /* Round corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555555; /* Thumb color on hover */
+}
