@@ -7,8 +7,8 @@ import Details from './pages/Details'
 function App() {
     return (
         <div className="App">
-            <div class="content-container">
-                <Link to="/anime" class="logo">
+            <div className="content-container">
+                <Link to="/anime" className="logo">
                     Jikan <span>Moe</span>
                 </Link>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 function Details() {
     const { id } = useParams()
@@ -7,16 +8,34 @@ function Details() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
+    // using Fetch
+    // useEffect(() => {
+    //     const fetchAnime = async () => {
+    //         try {
+    //             const response = await fetch(
+    //                 `https://api.jikan.moe/v4/anime/${id}`,
+    //             )
+    //             if (!response.ok)
+    //                 throw new Error('Error fetching anime details')
+    //             const data = await response.json()
+    //             setAnime(data.data)
+    //         } catch (err) {
+    //             setError(err.message)
+    //         } finally {
+    //             setLoading(false)
+    //         }
+    //     }
+
+    //     fetchAnime()
+    // }, [id])
+
     useEffect(() => {
         const fetchAnime = async () => {
             try {
-                const response = await fetch(
+                const response = await axios.get(
                     `https://api.jikan.moe/v4/anime/${id}`,
                 )
-                if (!response.ok)
-                    throw new Error('Error fetching anime details')
-                const data = await response.json()
-                setAnime(data.data)
+                setAnime(response.data.data)
             } catch (err) {
                 setError(err.message)
             } finally {

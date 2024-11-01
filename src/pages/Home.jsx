@@ -1,19 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Home() {
     const [datas, setDatas] = useState([])
     const [errors, setErrors] = useState()
     const [loading, setLoading] = useState(false)
 
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             setLoading(true)
+    //             const response = await fetch('https://api.jikan.moe/v4/anime')
+    //             if (!response.ok) throw new Error('Error fetching data')
+    //             const data = await response.json()
+    //             setDatas(data.data)
+    //         } catch (error) {
+    //             setErrors(error.message)
+    //         } finally {
+    //             setLoading(false)
+    //             document.title = 'Anime List'
+    //         }
+    //     }
+
+    //     fetchData()
+    // }, [])
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true)
-                const response = await fetch('https://api.jikan.moe/v4/anime')
-                if (!response.ok) throw new Error('Error fetching data')
-                const data = await response.json()
-                setDatas(data.data)
+                const response = await axios.get('https://api.jikan.moe/v4/anime')
+                setDatas(response.data.data)
             } catch (error) {
                 setErrors(error.message)
             } finally {
